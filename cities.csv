@@ -1,0 +1,19 @@
+city,points,hw,sw,rev
+New Orleans, 10, A, 01, a.01
+Sydney, 15, A, 02, a.02
+Hanoi, 20, B, 01, b.01
+Cusco, 25, B, 02, b.02
+Johannesburg, 20, B, 04, b.04
+Reykjavik, 35, A, 03, a.03
+Whitehorse, 50, C, 01, c.01
+Addis Ababa, 50, B, 03, b.03
+Novosibirsk, 40, C, 02, c.02
+Santa Cruz, 50, B, 05, b.05
+Montevideo, 50, C, 03, c.03
+Jakarta, 40, B, 06, b.06
+Algiers, 100, D, 01, d.01
+Vladivostok, 100, C, 05, c.05
+Lagos, 150, C, 04, c.04
+Bangalore, 100, E, 01, e.01
+Chernobyl, 300, D, 02, d.02
+Hollywood, 400, A, 04, a.04
