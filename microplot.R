@@ -1,5 +1,8 @@
 library(ggplot2)
 data <- read.csv("cities.csv", colClasses = c("character", "integer", "character", "character", "factor"))
+# Sort in decreasing order of points, so that larger bubbles are in the
+# background.
+data <- data[order(data$points, decreasing=TRUE),]
 p <- ggplot(data, aes(x=hw, y=sw, size=points,label=city)) +
   xlab("hardware rev") +
   ylab("software rev") +
