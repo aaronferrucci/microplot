@@ -1,5 +1,6 @@
 library(ggplot2)
 library(rvest)
+library(dplyr)
 
 plot_problems <- function() {
   data <- read.csv("cities.csv", colClasses = c("character", "integer", "character", "character", "factor"))
@@ -59,7 +60,42 @@ get_hall_of_fame <- function(use_cached = TRUE) {
   return(hall_of_fame)
 }
 
-test_default <- function(x = TRUE) {
-  print(x)
+# p <- ggplot(hof, aes(x=score, y=rank, size=score, label="")) +
+#   xlab("score") +
+#   ylab("rank") +
+#   ggtitle("scores") +
+#   geom_point(color="white", fill="red", shape=21) +
+#   geom_text(size=4) +
+#   scale_size_area(max_size=50) +
+#   theme(legend.position="none",panel.grid.major = element_blank())
+# print(p)
+ 
+bubbles <- function() {
+  hof <- get_hall_of_fame()
+  tabular <- as.data.frame(table(hof$score))
+  names(tabular) <- c("score", "freq")
+
+  p <- ggplot(tabular, aes(x=score, y=1, size=freq, label=score)) +
+    xlab("score") +
+    ggtitle("scores") +
+    geom_point(color="white", fill="red", shape=21) +
+    geom_text(size=4) +
+    scale_size_area(max_size=50) +
+    theme(legend.position="none",panel.grid.major = element_blank())
+  print(p)
 }
 
+
+make_histogram <- function() {
+  hof <- get_hall_of_fame()
+  hof <- hof %>% group_by(score) %>% mutate(min_rank = min(rank) - 1)
+  hof$rank_by_group <- hof$rank - hof$min_rank
+
+  p <- ggplot(hof, aes(x=score, y=rank_by_group)) +
+    xlab("score") +
+    ylab("rank by group") +
+    ggtitle("histogram") +
+    geom_point()
+  print(p)
+
+}

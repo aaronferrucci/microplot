@@ -13,3 +13,8 @@ plot_problems()
 hof <- get_hall_of_fame()
 qplot(hof$score)
 ```
+
+========================================================
+``` {r hist, fig.width=8, fig.height=4.5, dpi=300, out.width="1920px", out.height="1080px", echo=F}
+make_histogram()
+```
