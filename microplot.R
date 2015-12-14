@@ -85,17 +85,18 @@ bubbles <- function() {
   print(p)
 }
 
-
 make_histogram <- function() {
   hof <- get_hall_of_fame()
   hof <- hof %>% group_by(score) %>% mutate(min_rank = min(rank) - 1)
   hof$rank_by_group <- hof$rank - hof$min_rank
+  hof$fscore <- as.factor(hof$score)
 
-  p <- ggplot(hof, aes(x=score, y=rank_by_group)) +
+  p <- ggplot(hof, aes(x=fscore, y=rank_by_group)) +
     xlab("score") +
-    ylab("rank by group") +
-    ggtitle("histogram") +
-    geom_point()
+    ylab("count") +
+    ggtitle("score histogram") +
+    geom_point(shape=16, fill="Black") +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
   print(p)
 
 }
