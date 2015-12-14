@@ -1,4 +1,4 @@
 # microplot
-Visualizing the problems of microcorruption (https://microcorruption.com/).
+Visualizing the data available on microcorruption (https://microcorruption.com/).
 
-Here's a plot: https://aaronferrucci.github.io/microplot/microplot.html
+Here are some slides: https://aaronferrucci.github.io/microplot/microplot.html
